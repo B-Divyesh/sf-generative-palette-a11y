@@ -1,5 +1,17 @@
 # Handoff — Generative Palette A11y
 
+## Independent verifier status — FAIL (2026-08-28 UTC)
+
+Candidate `3bc4d17c122f228ebf4746309622009de8cd6ff1` at
+https://generative-palette-a11y.sociobot.in was independently verified and
+**must not be released**. The deployment byte-matches the candidate, so this
+is not a deployment-only problem. Release blockers: missing
+`.factory/claims.json`, no one-click sample-data demo on the cold first
+screen, and a service-worker offline reload that fails to load the app JS.
+Manual accessibility checks also found a 2.89:1 focus indicator and controls
+below the 44px touch-target baseline. Full reproducible evidence is in
+`.factory/verification.md`.
+
 ## Delivered
 
 - A local-first palette field lab: named hex swatches, common colour-vision
