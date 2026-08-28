@@ -1,0 +1,6 @@
+{
+  "slug": "generative-palette-a11y",
+  "title": "Generative Palette A11y",
+  "artifact_class": "static-web",
+  "summary": "A local browser tool that checks palette behaviour across uploaded sketch frames under approximate colour-vision simulations."
+}
