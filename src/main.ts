@@ -392,7 +392,8 @@ async function enterDemo() {
   const loaded = await Promise.all(sampleFrames.map(frame => imageFromUrl(frame.name, frame.url).catch(() => undefined)));
   frames = loaded.filter((frame): frame is Frame => Boolean(frame));
   saveDemo();
-  demoBanner.hidden = false;
+  demoBanner.removeAttribute('aria-hidden');
+  demoBanner.removeAttribute('inert');
   studyLabel.hidden = false;
   renderSwatches();
   renderFrames();
