@@ -16,6 +16,7 @@ html { scroll-behavior: smooth; }
 body {
   min-width: 0;
   margin: 0;
+  padding-bottom: 72px;
   background: repeating-linear-gradient(#f7f0df, #f7f0df 4px, #f5eddb 5px);
   color: var(--ink);
   font: 16px/1.55 Arial, sans-serif;
@@ -73,8 +74,10 @@ nav a, footer a {
   text-underline-offset: 4px;
 }
 .demo-banner {
-  position: sticky;
-  top: 0;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 5;
   display: flex;
   align-items: center;
@@ -383,6 +386,7 @@ footer {
 @media (max-width: 360px) {
   .site-head { display: block; }
   nav { margin-top: 8px; }
+  body { padding-bottom: 116px; }
   .demo-banner { align-items: flex-start; justify-content: flex-start; flex-direction: column; padding: 8px 12px; }
   .swatch-row { grid-template-columns: 44px minmax(0, 1fr); }
   .hex-input { grid-column: 2; grid-row: 2; }
