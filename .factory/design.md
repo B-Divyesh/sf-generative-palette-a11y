@@ -45,3 +45,7 @@ vermilion, moss”; editorial 35mm top-down view; **no text, watermark, logos,
 people, brands, or UI mockups**. Generated with the factory image deployment on
 2026-08-28; original asset, then optimized to WebP. The footer discloses this.
 
+The 1200×630 social preview and 180×180 touch icon are crops derived from that
+same original hero, made on 2026-09-05. The two demo loop frames are
+hand-authored SVG geometry using the product tokens; they show an intentionally
+confusable coral/moss pair so the sample immediately produces a useful report.

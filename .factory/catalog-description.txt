@@ -1,0 +1,1 @@
+Check generative sketch palettes in local color-vision simulations with sample frames.

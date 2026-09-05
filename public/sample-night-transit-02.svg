@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title">
+  <title>Second sample generative sketch frame with shifted platform lights and coral marks</title>
+  <rect width="960" height="540" fill="#25364B"/>
+  <path d="M0 330 960 122v418H0z" fill="#1A293B"/>
+  <path d="M0 154 960 22v112L0 266z" fill="#8A704F"/>
+  <g fill="#E2B84E">
+    <circle cx="128" cy="105" r="15"/><circle cx="324" cy="80" r="24"/><circle cx="546" cy="55" r="13"/>
+    <circle cx="736" cy="30" r="21"/><circle cx="904" cy="8" r="12"/>
+  </g>
+  <g fill="#C95B4C">
+    <path d="M68 245c0-32 26-58 58-58s58 26 58 58v169H68z"/>
+    <path d="M422 194c0-38 31-69 69-69s69 31 69 69v230H422z"/>
+    <path d="M760 157c0-28 23-51 51-51s51 23 51 51v270H760z"/>
+  </g>
+  <path d="M0 425 960 266v49L0 474z" fill="#F3E4C7" opacity=".82"/>
+  <path d="M0 488 960 329v20L0 508z" fill="#E2B84E" opacity=".8"/>
+</svg>

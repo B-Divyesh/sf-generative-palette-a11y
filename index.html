@@ -3,53 +3,130 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="A local-first palette lab for generative artists: inspect frames under approximate color-vision simulations." />
-    <title>Generative Palette A11y — palette behaviour lab</title>
+    <meta name="theme-color" content="#f7f0df" />
+    <meta name="description" content="Check generative sketch palettes against approximate color-vision simulations without uploading frames." />
+    <link rel="canonical" href="https://generative-palette-a11y.sociobot.in/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Generative Palette A11y — check sketch palettes" />
+    <meta property="og:description" content="Check generative sketch palettes without uploading frames." />
+    <meta property="og:url" content="https://generative-palette-a11y.sociobot.in/" />
+    <meta property="og:image" content="https://generative-palette-a11y.sociobot.in/social-preview.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Generative Palette A11y — check sketch palettes" />
+    <meta name="twitter:description" content="Check generative sketch palettes without uploading frames." />
+    <meta name="twitter:image" content="https://generative-palette-a11y.sociobot.in/social-preview.jpg" />
+    <title>Generative Palette A11y — check sketch palettes</title>
   </head>
   <body>
-    <a class="skip" href="#lab">Skip to the palette lab</a>
+    <a class="skip" href="#main">Skip to the palette tool</a>
     <header class="site-head">
       <a class="wordmark" href="/" aria-label="Generative Palette A11y home"><span aria-hidden="true">✦</span> Palette A11y <i>field notes</i></a>
-      <nav aria-label="Page sections"><a href="#lab">Lab</a><a href="#method">Method</a></nav>
+      <nav aria-label="Main navigation">
+        <a href="/demo">Try sample</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="/privacy/">Privacy</a>
+      </nav>
     </header>
-    <main>
+    <aside id="demoBanner" class="demo-banner" hidden aria-label="Sample data mode">
+      <p><strong>Demo</strong> — sample data, nothing is saved to your palette.</p>
+      <div class="demo-actions">
+        <button id="resetDemo" class="text-button" type="button">Reset demo</button>
+        <button id="startForReal" class="text-button" type="button">Start for real</button>
+      </div>
+    </aside>
+    <main id="main" tabindex="-1">
       <section class="intro" aria-labelledby="page-title">
         <div class="intro-copy">
-          <p class="eyebrow">A local instrument for moving colour</p>
-          <h1 id="page-title">Keep the mood.<br />Make the marks <em>separate.</em></h1>
-          <p class="lede">Test your generative palette against the proportions and frames it actually lives in. Nothing leaves this browser.</p>
-          <a class="button primary" href="#lab">Start a palette study <span aria-hidden="true">↓</span></a>
+          <p class="eyebrow">Local palette checker</p>
+          <h1 id="page-title">Check generative palettes in real sketch frames</h1>
+          <p class="lede">For generative-coding artists who need colors more viewers can tell apart in moving sketches.</p>
+          <div class="action-row">
+            <a class="button primary" href="/demo">Try it with sample data</a>
+            <p class="action-note">Loads a palette and two sketch frames.</p>
+          </div>
+          <ul class="facts" aria-label="Product facts">
+            <li>Works offline after the first visit.</li>
+            <li>Frames stay on this device.</li>
+            <li>Free to use. No account needed.</li>
+          </ul>
         </div>
-        <figure class="hero-figure"><img src="/notebook-hero.webp" width="1200" height="800" fetchpriority="high" decoding="async" alt="Open artist notebook with abstract paint studies and palette strips on a warm paper desk." /><figcaption>Original AI-generated studio study · the analysis is your own.</figcaption></figure>
+        <figure class="hero-figure">
+          <img src="/notebook-hero.webp" width="1200" height="800" fetchpriority="high" decoding="async" alt="Open artist notebook with abstract paint studies and palette strips on a warm paper desk." />
+          <figcaption>Original AI-generated studio study. The analysis uses your own palette and frames.</figcaption>
+        </figure>
       </section>
 
       <section id="lab" class="lab" aria-labelledby="lab-title">
-        <div class="section-title"><p class="eyebrow">Notebook 01</p><h2 id="lab-title">The palette field test</h2><p>Add colours, then optionally bring in up to six representative frames. The report estimates where your actual marks become hard to tell apart.</p></div>
+        <div class="section-title">
+          <p class="eyebrow">Palette tool</p>
+          <h2 id="lab-title">Check palette separation</h2>
+          <p>Add colors, then add up to six representative frames. The report shows pairs that may be hard to tell apart.</p>
+        </div>
         <div class="lab-grid">
-          <div class="palette-panel ruled" aria-labelledby="palette-title">
-            <div class="panel-head"><h3 id="palette-title">Paint dabs</h3><button class="text-button" id="resetPalette" type="button">Restore study</button></div>
-            <p class="hint">Name every swatch so findings are meaningful in your sketch.</p>
+          <section class="palette-panel ruled" aria-labelledby="palette-title">
+            <p id="studyLabel" class="study-label" hidden>Sample: Night transit loop</p>
+            <div class="panel-head">
+              <h3 id="palette-title">Palette colors</h3>
+              <button class="text-button" id="resetPalette" type="button">Restore starting palette</button>
+            </div>
+            <p class="hint">Name each swatch so the report names the color you use in your sketch.</p>
             <div id="swatches" class="swatches" aria-live="polite"></div>
-            <button class="button secondary" id="addSwatch" type="button">+ Add swatch</button>
-          </div>
+            <button class="button secondary" id="addSwatch" type="button">Add swatch</button>
+          </section>
           <section class="frame-panel ruled" aria-labelledby="frames-title">
-            <div class="panel-head"><h3 id="frames-title">Sketch frames <span class="small">optional</span></h3><label class="file-button" for="frames">Choose images<input id="frames" type="file" accept="image/png,image/jpeg,image/webp,image/gif" multiple /></label></div>
-            <p class="hint">Use representative moments in the loop, not a single ideal frame. Image pixels are matched to their nearest supplied swatch.</p>
-            <div id="frameEmpty" class="empty-note"><span aria-hidden="true">⌁</span><strong>No frames yet</strong><p>Pair checks work from the swatches alone. Add frames to weight findings by visible area.</p></div>
+            <div class="panel-head">
+              <h3 id="frames-title">Sketch frames <span class="small">optional</span></h3>
+              <label class="file-button" for="frames">Choose images<input id="frames" type="file" accept="image/png,image/jpeg,image/webp,image/gif" multiple /></label>
+            </div>
+            <p class="hint">Use moments from the loop, not one ideal frame. Pixels are matched to the nearest supplied color.</p>
+            <div id="frameEmpty" class="empty-note"><span aria-hidden="true">⌁</span><strong>No frames yet</strong><p>Pair checks work with swatches alone. Add frames to weight findings by visible area.</p></div>
             <div id="frameList" class="frame-list"></div>
             <p id="frameError" class="error" aria-live="assertive"></p>
           </section>
         </div>
         <section class="analysis ruled" aria-labelledby="analysis-title">
-          <div class="panel-head"><div><p class="eyebrow">Notebook 02</p><h2 id="analysis-title">What the eye may merge</h2></div><button id="exportReport" class="button secondary" type="button">Export field notes</button></div>
-          <fieldset class="simulations"><legend>Approximate viewing conditions</legend><label><input type="checkbox" name="simulation" value="normal" checked /> Original</label><label><input type="checkbox" name="simulation" value="protanopia" checked /> Protanopia</label><label><input type="checkbox" name="simulation" value="deuteranopia" checked /> Deuteranopia</label><label><input type="checkbox" name="simulation" value="tritanopia" checked /> Tritanopia</label></fieldset>
-          <div id="offline" class="offline" hidden role="status">You’re offline. That’s okay — this tool runs entirely in this browser.</div>
+          <div class="panel-head">
+            <div><p class="eyebrow">Report</p><h2 id="analysis-title">Find color pairs to inspect</h2></div>
+            <button id="exportReport" class="button secondary" type="button">Export field notes</button>
+          </div>
+          <fieldset class="simulations">
+            <legend>Approximate viewing conditions</legend>
+            <label><input type="checkbox" name="simulation" value="normal" checked /> Original</label>
+            <label><input type="checkbox" name="simulation" value="protanopia" checked /> Protanopia</label>
+            <label><input type="checkbox" name="simulation" value="deuteranopia" checked /> Deuteranopia</label>
+            <label><input type="checkbox" name="simulation" value="tritanopia" checked /> Tritanopia</label>
+          </fieldset>
+          <div id="offline" class="offline" hidden role="status">You’re offline. Your loaded palette and frames still work here.</div>
           <div id="report" class="report" aria-live="polite"></div>
         </section>
       </section>
-      <section id="method" class="method" aria-labelledby="method-title"><p class="eyebrow">Read before publishing</p><h2 id="method-title">A useful approximation, not a certificate.</h2><div><p>Colour vision varies within and beyond named categories. This lab uses simple sRGB matrix approximations for protanopia, deuteranopia, and tritanopia, then compares simulated colour separation and relative luminance. It cannot predict every person’s perception or the effects of context, displays, motion, texture, and size.</p><p>Frame weighting assigns image pixels to their closest supplied swatch, so it is most informative when the palette is concise and the frames are representative. Treat flagged pairings as places to inspect, not a universal pass/fail.</p></div></section>
+
+      <section id="how-it-works" class="how-it-works" aria-labelledby="how-title">
+        <div><p class="eyebrow">How it works</p><h2 id="how-title">Use the report in three steps</h2></div>
+        <div>
+          <ol class="steps">
+            <li><strong>Load colors and frames.</strong> Add your palette and moments from the actual sketch loop.</li>
+            <li><strong>Inspect the highest-risk pair.</strong> Review simulated separation and visible area together.</li>
+            <li><strong>Try a bounded alternative.</strong> Apply a lightness change, then export field notes for the sketch.</li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="method" class="method" aria-labelledby="method-title">
+        <div><p class="eyebrow">Limits and privacy</p><h2 id="method-title">What this report can and cannot tell you</h2></div>
+        <div>
+          <p>Color vision varies within and beyond named categories. This tool uses simple sRGB matrix approximations for three common differences.</p>
+          <p>It cannot predict every person’s perception or every display condition. Use flagged pairs as places to inspect, not as certification.</p>
+          <p>Images stay in your browser. The sample demo uses a separate browser key and never writes to a real study.</p>
+        </div>
+      </section>
     </main>
-    <footer><span>Made for generative-coding artists. Local-first; no uploads, trackers, or accounts.</span><span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · Illustration generated with Azure OpenAI image tooling.</span></footer>
+    <footer>
+      <span>Palette checks for generative-coding artists.</span>
+      <span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · Built by Param Factory · v1.1.0</span>
+    </footer>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

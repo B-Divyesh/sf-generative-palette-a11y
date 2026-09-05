@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://generative-palette-a11y.sociobot.in/sitemap.xml

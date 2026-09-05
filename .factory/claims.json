@@ -1,0 +1,44 @@
+[
+  {
+    "id": "demo-sandbox",
+    "claim": "Loads sample palette data and two sample frames without changing a real study",
+    "where": "landing action, demo banner, README",
+    "test": "npm run test:browser -- --grep @claim:demo-sandbox",
+    "sandbox": "fresh browser context at /demo; change a sample swatch, start for real, and assert the real starting study is unchanged"
+  },
+  {
+    "id": "sample-analysis",
+    "claim": "Shows a palette report for the supplied Night transit loop sample",
+    "where": "landing action and demo palette label",
+    "test": "npm run test:browser -- --grep @claim:sample-analysis",
+    "sandbox": "fresh browser context at /demo; wait for the persistent sample label, two frames, and a populated pair report"
+  },
+  {
+    "id": "offline-reload",
+    "claim": "Works offline after the first visit",
+    "where": "landing facts and README",
+    "test": "npm run test:browser -- --grep @claim:offline-reload",
+    "sandbox": "fresh browser context; load /demo online, wait for the service worker, reload once under control, set offline, and reload the demo"
+  },
+  {
+    "id": "local-processing",
+    "claim": "Frames stay on this device; the core tool is free and needs no account",
+    "where": "landing facts, limits and privacy section, Privacy page, README",
+    "test": "npm run test:browser -- --grep @claim:local-processing",
+    "sandbox": "fresh browser context; record every request while loading and using /demo, then assert every request is first-party and the demo completes without sign-in"
+  },
+  {
+    "id": "json-export",
+    "claim": "Downloads field notes as JSON",
+    "where": "Export field notes button and README",
+    "test": "npm run test:browser -- --grep @claim:json-export",
+    "sandbox": "fresh browser context at /demo; export and inspect the downloaded JSON for sample swatches, sample frames, and selected simulations"
+  },
+  {
+    "id": "frame-limit",
+    "claim": "Accepts up to six sketch frames under 8 MB each",
+    "where": "palette tool instructions and README",
+    "test": "npm run test:browser -- --grep @claim:frame-limit",
+    "sandbox": "fresh browser context at /demo; add four valid PNG frames to the two supplied frames, then attempt one extra frame and assert the recovery message"
+  }
+]
